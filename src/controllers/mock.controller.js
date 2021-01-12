@@ -10,7 +10,7 @@ mockCtrl.RequestPOVINdata= async (req, res) => {
         resp.resultCode = 'GCOREFA';
 
         resp.errorManagement = {
-            errorCode: 'ERROR01',
+            errorCode: 'ERROR_AW_01',
             errorDescription : 'Internal Error Server'
         }
 
@@ -36,7 +36,7 @@ mockCtrl.SubmitCustomerInformation= async (req, res) => {
         resp.resultCode = 'GCOREFA';
 
         resp.errorManagement = {
-            errorCode: 'ERROR01',
+            errorCode: 'ERROR_AW_01',
             errorDescription : 'Internal Error Server'
         }
 

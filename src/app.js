@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-app.use('/api/gateway/', require('./routes/stock'));
-app.use('/api/gateway/', require('./routes/mock'));
+app.use('/api/gateway/fail/', require('./routes/stock'));
+app.use('/api/gateway/fail/', require('./routes/mock'));
 
 module.exports = app;
