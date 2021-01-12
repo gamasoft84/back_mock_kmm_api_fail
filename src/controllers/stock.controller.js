@@ -53,16 +53,20 @@ stockCtrl.getVersions= async (req, res) => {
 
 
 
-stockCtrl.retrieveStockCount= async (req, res) => {
+stockCtrl.RetrieveVehicleStockCount= async (req, res) => {
     try {
-        const { modlCd, versionCd, year } = req.body;
+        const { modelCode, versionCode, modelYear, messageId, transactionId } = req.body;
         let resp ={};
         let filter = {};
-        modlCd && (filter = {...filter, 'v.modlCdSap': ( Array.isArray(modlCd) ? { $in : modlCd} : modlCd)} )
-        versionCd && (filter = {...filter, 'v.versionCdSap':( Array.isArray(versionCd) ? { $in : versionCd} : versionCd) } )       
-        year && (filter = {...filter, 'v.year': ( Array.isArray(year) ? { $in : year} : year) } )
-        resp.transactionId = 'UUID';
-        resp.messageId = 23;
+        modelCode && (filter = {...filter, 'v.modlCdSap': ( Array.isArray(modelCode) ? { $in : modelCode} : modelCode)} )
+        versionCode && (filter = {...filter, 'v.versionCdSap':( Array.isArray(versionCode) ? { $in : versionCode} : versionCode) } )       
+        modelYear && (filter = {...filter, 'v.year': ( Array.isArray(modelYear) ? { $in : modelYear} : modelYear) } )
+        resp.messageId = messageId ? messageId : 'KMM_' + new Date().getTime() + '';
+        resp.transactionId = transactionId ? transactionId: 'VEHICLE_STOCK_COUNT_' + new Date().getTime() + '';
+        resp.errorManagement = {
+            errorCode: '',
+            errorDescription : ''
+        }
 
         let versions;
         console.log('Filter:', filter);
@@ -93,11 +97,11 @@ stockCtrl.retrieveStockCount= async (req, res) => {
                 }, 
                 {
                     "$project": {
-                        "modlCd": "$v.modlCdSap",
-                        "versionCd": "$v.versionCdSap",
-                        "year": "$v.year",
-                        "colorCd": "$vc.colorCd",
-                        "stock": "$vc.stock",
+                        "modelCode": "$v.modlCdSap",
+                        "versionCode": "$v.versionCdSap",
+                        "modelYear": "$v.year",
+                        "extColorCode": "$vc.colorCd",
+                        "stockCount": "$vc.stock",
                         "_id": 0
                     }
                 }
