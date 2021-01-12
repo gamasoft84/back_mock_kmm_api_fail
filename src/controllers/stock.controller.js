@@ -11,8 +11,8 @@ stockCtrl.RetrieveVehicleStockCount= async (req, res) => {
         resp.resultCode = 'GCOREFA';
 
         resp.errorManagement = {
-            errorCode: '',
-            errorDescription : ''
+            errorCode: 'ERROR01',
+            errorDescription : 'Internal Error Server'
         }
 
         console.log('RetrieveVehicleStockCount');
