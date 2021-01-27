@@ -1,8 +1,9 @@
 
 const Log = require('../models/Log');
 
-const registerInLog = async(messageId, transactionId, body, resp, resultCode) => {
+const registerInLog = async(api,messageId, transactionId, body, resp, resultCode) => {
    const logBD = new Log();
+    logBD.api = api;
     logBD.messageId = messageId;
     logBD.transactionId = transactionId;
     logBD.req = JSON.stringify(body);

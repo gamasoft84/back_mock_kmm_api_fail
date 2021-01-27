@@ -19,7 +19,7 @@ stockCtrl.RetrieveVehicleStockCount= async (req, res) => {
 
         console.log('RetrieveVehicleStockCount');
         //log
-        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
+        registerInLog('RetrieveVehicleStockCount',resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
         res.json(resp);
     }
     catch (err) {
