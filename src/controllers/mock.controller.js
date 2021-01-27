@@ -57,4 +57,166 @@ mockCtrl.SubmitCustomerInformation= async (req, res) => {
     }
 };
 
+
+
+
+mockCtrl.SubmitCheckinLeadData= async (req, res) => {
+    try {
+        const {messageId, transactionId } = req.body;
+        let resp ={};
+        
+        resp.messageId = messageId ? messageId : 'KMM_' + new Date().getTime() + '';
+        resp.transactionId = transactionId ? transactionId: 'CHECKIN_LEAD_' + new Date().getTime() + '';
+        resp.errorManagement = {
+            errorCode: 'ERROR_AW_01',
+            errorDescription : 'Internal Error Server'
+        }
+
+        console.log('SubmitCheckinLeadData');
+        resp.resultCode = 'GCOREFA';
+        //log
+        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
+        res.json(resp);
+    }
+    catch (err) {
+        resp.resultCode = 'GCOREFA';
+        res.status(400).json({
+            resp
+        });
+    }
+};
+
+mockCtrl.SubmitTestDriveFeedback= async (req, res) => {
+    try {
+        const {messageId, transactionId } = req.body;
+        let resp ={};
+        
+        resp.messageId = messageId ? messageId : 'KMM_' + new Date().getTime() + '';
+        resp.transactionId = transactionId ? transactionId: 'TESTDRIVE_FEEDBACK_' + new Date().getTime() + '';
+        resp.errorManagement = {
+            errorCode: 'ERROR_AW_01',
+            errorDescription : 'Internal Error Server'
+        }
+
+        console.log('SubmitTestDriveFeedback');
+        resp.resultCode = 'GCOREFA';
+        //log
+        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
+        res.json(resp);
+    }
+    catch (err) {
+        resp.resultCode = 'GCOREFA';
+        res.status(400).json({
+            resp
+        });
+    }
+};
+
+mockCtrl.SubmitPOVINdata= async (req, res) => {
+    try {
+        const {messageId, transactionId } = req.body;
+        let resp ={};
+        
+        resp.messageId = messageId ? messageId : 'KMM_' + new Date().getTime() + '';
+        resp.transactionId = transactionId ? transactionId: 'PO_VIN_' + new Date().getTime() + '';
+        resp.errorManagement = {
+            errorCode: 'ERROR_AW_01',
+            errorDescription : 'Internal Error Server'
+        }
+
+        console.log('SubmitPOVINdata');
+        resp.resultCode = 'GCOREFA';
+        //log
+        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
+        res.json(resp);
+    }
+    catch (err) {
+        resp.resultCode = 'GCOREFA';
+        res.status(400).json({
+            resp
+        });
+    }
+};
+
+mockCtrl.SubmitInvoiceVINdata= async (req, res) => {
+    try {
+        const {messageId, transactionId } = req.body;
+        let resp ={};
+        
+        resp.messageId = messageId ? messageId : 'KMM_' + new Date().getTime() + '';
+        resp.transactionId = transactionId ? transactionId: 'INVOICE_VIN_' + new Date().getTime() + '';
+        resp.errorManagement = {
+            errorCode: 'ERROR_AW_01',
+            errorDescription : 'Internal Error Server'
+        }
+
+        console.log('SubmitInvoiceVINdata');
+        resp.resultCode = 'GCOREFA';
+        //log
+        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
+        res.json(resp);
+    }
+    catch (err) {
+        resp.resultCode = 'GCOREFA';
+        res.status(400).json({
+            resp
+        });
+    }
+};
+
+mockCtrl.SubmitVehicleDetailData= async (req, res) => {
+    try {
+        const {messageId, transactionId } = req.body;
+        let resp ={};
+        
+        resp.messageId = messageId ? messageId : 'KMM_' + new Date().getTime() + '';
+        resp.transactionId = transactionId ? transactionId: 'VEHICLE_DETAIL_' + new Date().getTime() + '';
+        resp.errorManagement = {
+            errorCode: 'ERROR_AW_01',
+            errorDescription : 'Internal Error Server'
+        }
+
+        console.log('SubmitVehicleDetailData');
+        resp.resultCode = 'GCOREFA';
+        //log
+        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
+        res.json(resp);
+    }
+    catch (err) {
+        resp.resultCode = 'GCOREFA';
+        res.status(400).json({
+            resp
+        });
+    }
+};
+
+
+mockCtrl.SubmitStaffData= async (req, res) => {
+    try {
+        const {messageId, transactionId } = req.body;
+        let resp ={};
+        
+        resp.messageId = messageId ? messageId : 'KMM_' + new Date().getTime() + '';
+        resp.transactionId = transactionId ? transactionId: 'STAFF_DATA' + new Date().getTime() + '';
+        resp.errorManagement = {
+            errorCode: 'ERROR_AW_01',
+            errorDescription : 'Internal Error Server'
+        }
+
+        console.log('SubmitStaffData');
+        resp.resultCode = 'GCOREFA';
+        //log
+        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
+        res.json(resp);
+    }
+    catch (err) {
+        resp.resultCode = 'GCOREFA';
+        res.status(400).json({
+            resp
+        });
+    }
+};
+
+
+
 module.exports = mockCtrl;
