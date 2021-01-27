@@ -1,3 +1,5 @@
+const registerInLog = require("../helpers/logHelper");
+
 const mockCtrl = {};
 
 mockCtrl.RequestPOVINdata= async (req, res) => {
@@ -15,6 +17,8 @@ mockCtrl.RequestPOVINdata= async (req, res) => {
         }
 
         console.log('RequestPOVINdata');
+        //log
+        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
         res.json(resp);
     }
     catch (err) {
@@ -41,6 +45,8 @@ mockCtrl.SubmitCustomerInformation= async (req, res) => {
         }
 
         console.log('SubmitCustomerInformation');
+        //log
+        registerInLog(resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
         res.json(resp);
     }
     catch (err) {
