@@ -1,13 +1,16 @@
 const { Router } = require('express');
 const router = Router();
 
-const { RequestPOVINdata, SubmitCustomerInformation, SubmitCheckinLeadData, SubmitTestDriveFeedback, SubmitPOVINdata, SubmitVehicleDetailData, SubmitStaffData, SubmitInvoiceVINdata } = require('../controllers/mock.controller');
+const { RequestPOVINdata, SubmitCustomerInformation, SubmitCheckinLeadData, SubmitTestDriveFeedback, SubmitPOVINdata, SubmitVehicleDetailData, SubmitStaffData, SubmitInvoiceVINdata, SubmitLeadData } = require('../controllers/mock.controller');
 
 router.route('/RequestPOVINdata')
     .post(RequestPOVINdata);
 
 router.route('/SubmitCustomerInformation')
     .post(SubmitCustomerInformation);
+
+router.route('/SubmitLeadData')
+    .post(SubmitLeadData);
 
 router.route('/SubmitCheckinLeadData')
     .post(SubmitCheckinLeadData);

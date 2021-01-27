@@ -57,7 +57,31 @@ mockCtrl.SubmitCustomerInformation= async (req, res) => {
     }
 };
 
+mockCtrl.SubmitLeadData= async (req, res) => {
+    try {
+        const {messageId, transactionId } = req.body;
+        let resp ={};
+        
+        resp.messageId = messageId ? messageId : 'KMM_' + new Date().getTime() + '';
+        resp.transactionId = transactionId ? transactionId: 'CHECKIN_LEAD_' + new Date().getTime() + '';
+        resp.errorManagement = {
+            errorCode: 'ERROR_AW_01',
+            errorDescription : 'Internal Error Server'
+        }
 
+        console.log('SubmitLeadData');
+        resp.resultCode = 'GCOREFA';
+        //log
+        registerInLog('SubmitLeadData',resp.messageId, resp.transactionId, req.body, resp, resp.resultCode);
+        res.json(resp);
+    }
+    catch (err) {
+        resp.resultCode = 'GCOREFA';
+        res.status(400).json({
+            resp
+        });
+    }
+};
 
 
 mockCtrl.SubmitCheckinLeadData= async (req, res) => {
